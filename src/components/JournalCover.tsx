@@ -1,6 +1,20 @@
+import { BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+
 export const JournalCover = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative min-h-screen bg-background flex items-center justify-center p-8 overflow-hidden">
+      {/* Dictionary Navigation Button */}
+      <Button
+        onClick={() => navigate("/dictionary")}
+        variant="ghost"
+        className="absolute top-6 right-6 gap-2 hover:bg-accent/20 backdrop-blur-sm z-10"
+      >
+        <BookOpen className="h-4 w-4" />
+        My Vocabulary
+      </Button>
       {/* Main journal card */}
       <div className="relative w-full max-w-md aspect-[3/4]">
         {/* 3D Book Effect - Spine/Binding */}
