@@ -5,36 +5,40 @@ import { useNavigate } from "react-router-dom";
 export const JournalCover = () => {
   const navigate = useNavigate();
   return (
-    <div className="relative min-h-screen bg-background flex items-center justify-center p-8 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center p-8 overflow-hidden bg-gradient-warm">
       {/* Dictionary Navigation Button */}
       <Button
         onClick={() => navigate("/dictionary")}
         variant="ghost"
-        className="absolute top-6 right-6 gap-2 hover:bg-accent/20 backdrop-blur-sm z-10"
+        className="absolute top-6 right-6 gap-2 glass-effect text-white hover:bg-white/20 z-10"
       >
         <BookOpen className="h-4 w-4" />
         My Vocabulary
       </Button>
-      {/* Main journal card */}
-      <div className="relative w-full max-w-md aspect-[3/4]">
-        {/* 3D Book Effect - Spine/Binding */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[hsl(350,85%,65%)] to-[hsl(350,85%,75%)] rounded-l-2xl shadow-2xl" />
+
+      {/* Main journal card with glassmorphism */}
+      <div className="relative w-full max-w-md aspect-[3/4] animate-fade-in">
+        {/* 3D Book Effect - Spine/Binding with glass */}
+        <div className="absolute left-0 top-0 bottom-0 w-12 glass-heavy rounded-l-3xl shadow-2xl border-r-0" />
         
-        {/* Main book cover with gradient */}
-        <div className="absolute inset-0 left-8 bg-gradient-warm rounded-r-2xl shadow-deep overflow-hidden">
+        {/* Main book cover with liquid glass effect */}
+        <div className="absolute inset-0 left-8 glass-heavy rounded-r-3xl overflow-hidden group transition-all duration-500 hover:scale-[1.02]">
           {/* Centered text */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="font-serif-display text-5xl font-light text-white tracking-wide text-center px-12 leading-tight">
+          <div className="absolute inset-0 flex items-center justify-center p-12">
+            <h1 className="font-serif-display text-5xl font-light text-white tracking-wide text-center leading-tight drop-shadow-lg">
               write here to find your force
             </h1>
           </div>
           
-          {/* Subtle texture overlay */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=')] opacity-30 rounded-r-2xl pointer-events-none" />
+          {/* Subtle shimmer overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          
+          {/* Inner glow border effect */}
+          <div className="absolute inset-0 rounded-r-3xl ring-1 ring-inset ring-white/30 pointer-events-none" />
         </div>
         
-        {/* Enhanced shadow for 3D effect */}
-        <div className="absolute inset-0 left-8 rounded-r-2xl shadow-[0_30px_80px_rgba(0,0,0,0.15)]" />
+        {/* Ambient shadow for depth */}
+        <div className="absolute inset-0 left-8 rounded-r-3xl shadow-[0_35px_90px_rgba(0,0,0,0.2)]" />
       </div>
     </div>
   );
